@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: php-app
+    volumes:
+      - ./src:/var/www
+    ports:
+      - 3000:3000
+    command: php -S 0.0.0.0:3000 -t /var/www
