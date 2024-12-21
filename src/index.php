@@ -38,7 +38,7 @@
     $L = isset($options['L']) ?
       __DIR__ . $options['L'] 
       : RESULT_PATH;
-    echo $options['D'];
+
     groupDictionary($D, $L);
   } else {
     require_once(__DIR__ . DIRECTORY_SEPARATOR . 'Router.php');
