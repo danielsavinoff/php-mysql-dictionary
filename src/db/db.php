@@ -27,7 +27,13 @@
           mkdir(LOGS_PATH);
         }
 
-        $logsFileHandle = fopen(LOGS_PATH . DIRECTORY_SEPARATOR . 'mysql.log', 'a+');
+        $filename = LOGS_PATH . DIRECTORY_SEPARATOR . 'mysql.log';
+        
+        $logsFileHandle = fopen($filename, 'a+');
+        
+        if (filesize($filename) > 0) {
+          fwrite($logsFileHandle, PHP_EOL); 
+        }
 
         fwrite($logsFileHandle, '[' . date('Y-m-d H:i:s') . '] ' . $e->getMessage());
 
